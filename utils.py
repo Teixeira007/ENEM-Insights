@@ -5,7 +5,6 @@ enem = (
     pd.read_csv('dados/MICRODADOS_ENEM_2022.csv', encoding='latin1', delimiter=';')
 )
 
-
 def mapear_idade(faixa_etaria):
     if faixa_etaria <= 10:
         return 'Menor de 26 anos'
@@ -138,10 +137,6 @@ enem['IN_TREINEIRO'] = enem['IN_TREINEIRO'].map(treineiro)
 enem['TP_STATUS_REDACAO'] = enem['TP_STATUS_REDACAO'].map(status_redacao)
 enem['Q006'] = enem['Q006'].map(faixas_renda).apply(atribuir_grupo_renda)
 enem['Q005'] = enem['Q005'].apply(atribuir_grupo_moradores)
-
-
-
-
 
 
 enem.to_csv('dados/dados_enem_tratados.csv', index=False)
